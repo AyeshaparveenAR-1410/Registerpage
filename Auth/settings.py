@@ -52,7 +52,7 @@ MIDDLEWARE = [
 ] 
 
 # MOVE THIS LINE BELOW THE BRACKET
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STORAGES = {"staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"}}
 ROOT_URLCONF = 'Auth.urls'
 
 TEMPLATES = [
