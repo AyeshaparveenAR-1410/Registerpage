@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Page</title>
+  <!--fonts-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: Verdana, Tahoma, sans-serif,Georgia, Times, serif, sans-serif;
+      background: linear-gradient(135deg, #ff6a00, #ffe624, #ff2424);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+    .login-container h2 {
+      text-align: center;
+      color: #001216;
+      margin-bottom: 20px;
+    }
+    .login-container input, .login-container select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #10fff7, #ff9245);
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    .login-container button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Student Register</h2> 
+    <!--- student login information--->
+    <form>
+    {% csrf_token %}
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="First Name" required>
+      <input type ="text" placeholder="Username" required>
+      <input type="email" placeholder="Email ID" required>
+      <!--password seen type-->
+      <div style="position:relative;">
+  <input type="password" id="password" placeholder="Password" required style="padding: right 20px;">
+  <span onclick="togglePassword()" 
+        style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer;">
+    😁
+  </span>
+</div>
+      <!--placing the requirments for the input materials-->
+      <select required>
+        <option value="" disabled selected>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      <!--- branches-->
+      <select required>
+  <option value="" disabled selected>Select Branch</option>
+  <option value="cse">CSE</option>
+  <option value="it">IT</option>
+  <option value="ece">ECE</option>
+  <option value="ai_ml">AI & ML</option>
+  <option value="ds">Data Science</option>
+</select>
+
+<!-- Standard/Year Dropdown -->
+<select required>
+  <option value="" disabled selected>Select Year</option>
+  <option value="1">1st Year</option>
+  <option value="2">2nd Year</option>
+  <option value="3">3rd Year</option>
+  <option value="4">4th Year</option>
+</select>
+
+      <button type="submit">Signup
+      </button>
+    </form>
+
+  </div>
+  <script>
+  function togglePassword() {
+    const passField = document.getElementById("password");
+    if (passField.type === "password") {
+      passField.type = "text";
+    } else {
+      passField.type = "password";
+    }
+  }
+</script>
+</body>
+</html>
+<!---complete page of login\register to add in the github server-->
